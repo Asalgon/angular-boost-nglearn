@@ -1,0 +1,17 @@
+<ng-content>
+  <div class="navbar">
+      <mat-toolbar class="navbar-content">
+        <div class="navbar-title-section">
+          <mat-icon class="navbar-title-icon">school</mat-icon>
+          <a routerLink="/home" style="text-decoration: none;"><span class="navbar-title">NgLearn</span></a>
+        </div>
+        <div class="navbar-sections">
+          <app-navbar-title getTitle="ABOUT FORMS" getIconName="description" getRedirect="/learn"></app-navbar-title>
+          <app-navbar-title getTitle="TEST YOUR SKILLS" getIconName="quiz" getRedirect="/test"></app-navbar-title>
+        </div>
+      </mat-toolbar>
+  </div>
+
+</ng-content>
+
+

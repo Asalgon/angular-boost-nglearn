@@ -1,0 +1,45 @@
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 1px 12px rgb(76, 76, 76);
+  z-index: 3;
+  overflow: clip;
+}
+
+.navbar-content{
+  background-color: rgb(255, 84, 104);
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.navbar-title-section{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  position: fixed;
+  left: 6px;
+}
+
+.navbar-sections{
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-title{
+  color: white;
+  font-size: 28px;
+  /*text-shadow: 2px 2px 6px rgb(76, 76, 76);*/
+}
+
+.navbar-title-icon{
+  margin-right: 8px;
+  color: white;
+  transform: scale(1.25);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

@@ -1,0 +1,17 @@
+.home-content{
+  margin-top: 64px;
+}
+
+.home-content-image{
+  position: relative;
+  width: 100%;
+  filter: blur(8px);
+  object-fit: fill;
+}
+
+.home-content-start{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
