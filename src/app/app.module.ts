@@ -13,6 +13,7 @@ import { FormsTestComponent } from './components/pages/core/forms-test/forms-tes
 import { HomeComponent } from './components/pages/core/home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LearnSectionComponent } from './components/pages/core/forms-learning/learn-section/learn-section.component';
+import { NotfoundComponent } from './components/pages/core/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LearnSectionComponent } from './components/pages/core/forms-learning/le
     FormsLearningComponent,
     FormsTestComponent,
     HomeComponent,
-    LearnSectionComponent
+    LearnSectionComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

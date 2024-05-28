@@ -1,3 +1,10 @@
-<h3>{{ sectionName }}</h3>
-<ng-content></ng-content>
+<div class="container">
+  <div class="text-container">
+    <ng-content select="[title]"></ng-content>
+    <ng-content class="content"></ng-content>
+  </div>
+  <ng-content select="[doc]"></ng-content>
+</div>
+
+
 

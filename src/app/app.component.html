@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="this.router.url !== '/404'">
   <app-page-header></app-page-header>
 </header>
 <router-outlet></router-outlet>
