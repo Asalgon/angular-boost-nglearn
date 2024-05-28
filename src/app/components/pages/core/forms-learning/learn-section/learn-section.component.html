@@ -1,10 +1,19 @@
-<div class="container">
+<div class="part-0">
   <div class="text-container">
-    <ng-content select="[title]"></ng-content>
-    <ng-content class="content"></ng-content>
+    <ng-content select="[title0]"></ng-content>
+    <ng-content class="content" select="[intro]"></ng-content>
   </div>
-  <ng-content select="[doc]"></ng-content>
+  <ng-content select="[img0]"></ng-content>
 </div>
+
+<div class="part-1">
+  <div class="text-container">
+    <ng-content select="[title1]"></ng-content>
+    <ng-content select="[content1]"></ng-content>
+  </div>
+  <ng-content select="[img1]"></ng-content>
+</div>
+
 
 
 

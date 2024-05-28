@@ -11,9 +11,10 @@ import { NavbarTitleComponent } from './components/pages/header/utils/navbar-tit
 import { FormsLearningComponent } from './components/pages/core/forms-learning/forms-learning.component';
 import { FormsTestComponent } from './components/pages/core/forms-test/forms-test.component';
 import { HomeComponent } from './components/pages/core/home/home.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { LearnSectionComponent } from './components/pages/core/forms-learning/learn-section/learn-section.component';
 import { NotfoundComponent } from './components/pages/core/notfound/notfound.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { NotfoundComponent } from './components/pages/core/notfound/notfound.com
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
+
   ],
   providers: [
     provideAnimationsAsync()
