@@ -1,7 +1,7 @@
 <div class="learning-content">
-  <h2>A propos</h2>
+  <h2>LES FORMULAIRES</h2>
 
-  <mat-tab-group dynamicHeight mat-stretch-tabs="true" mat-align-tabs="center" color="warn">
+  <mat-tab-group dynamicHeight mat-stretch-tabs="true" mat-align-tabs="middle" color="warn">
     <mat-tab label="Vue d'ensemble">
       <div class="example-small-box mat-elevation-z4">
         <app-learn-section>
@@ -23,21 +23,17 @@
               <p>Permettre aux utilisateurs de saisir des critères de recherche et filtrer les résultats en fonctions de ces critères</p>
             </ul>
             <p>Les formulaires Angular offrent une grande flexibilité pour s'accorder au mieux aux besoins des développeurs. Dans cette section nous verrons comment s'orienter vers le bon type de formulaires et les principales différences entre ceux-ci.</p>
-
-            <img class="overview-img" img0 src="/img/forms.jpg" alt="forms">
           </div>
+          <img class="overview-img" img0 src="/img/forms.jpg" alt="forms">
 
           <h3 title1>Choisir une approche</h3>
-          <div content1>
+          <div content1 class="overview-content">
             <p>Angular propose deux types principaux de formulaires :</p>
             <ul>
               <li>Les formulaires basés sur les modèles (Template-driven forms)</li>
               <li>Les formulaires réactifs (Reactive forms)</li>
             </ul>
             <p>Bien que la finalité reste identique pour les deux types, leurs utilisations diffèrent et ont chacun des avantages et des inconvénients.</p>
-
-
-
 
             <h4>Comparatif</h4>
             <table tab mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -59,9 +55,9 @@
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-            <img class="overview-img" img1 src="/img/form-types.png" alt="form-types">
-          </div>
 
+          </div>
+          <img class="overview-img form-example" img1 src="/img/form-ex.png" alt="form-types">
 
         </app-learn-section>
       </div>
@@ -70,11 +66,14 @@
 
 
 
-    <mat-tab label="Formulaires réactifs">
+    <mat-tab label="Basé du modèle">
       <div class="example-small-box mat-elevation-z4">
         <app-learn-section>
-          <h3 title>Les formulaires réactifs</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec ullamcorper ante. Donec eget velit non libero sollicitudin dapibus a eu nisi. Phasellus eget turpis viverra, mollis purus eget, placerat metus. Fusce tincidunt arcu in viverra mattis. Proin in malesuada eros, ac condimentum leo. Praesent nibh purus, varius sit amet aliquam in, cursus nec neque. Maecenas mi est, euismod vitae scelerisque vitae, imperdiet sed felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet magna ut nulla congue, vitae dictum dolor dignissim. Mauris et ornare dui, ut sagittis mauris. Phasellus sem leo, maximus at hendrerit a, auctor in turpis. Pellentesque arcu nisl, lacinia id tellus lacinia, imperdiet posuere odio. Nullam vel pulvinar sem. Mauris vitae cursus nisi, lacinia porttitor sapien. Aliquam erat volutpat.</p>
+          <h3 title0>Les formulaires basés sur modèles</h3>
+          <div intro class="overview-content">
+            <p>Un formulaire basé sur modèle (ou Template-driven) est un type de formulaire où la majeure partie de la logique est définie dans le template HTML. Cette approche est intuitive et simple à mettre en oeuvre pour des formulaires de petite à moyenne complexité.</p>
+
+          </div>
         </app-learn-section>
       </div>
     </mat-tab>
@@ -82,7 +81,7 @@
 
 
 
-    <mat-tab label="Template-driven forms">
+    <mat-tab label="Formulaire réactif">
       <div class="example-small-box mat-elevation-z4">
         <app-learn-section>
           <h3 title>Les formulaires template</h3>

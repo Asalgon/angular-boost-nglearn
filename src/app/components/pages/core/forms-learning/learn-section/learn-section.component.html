@@ -1,4 +1,4 @@
-<div class="part-0">
+<div class="block">
   <div class="text-container">
     <ng-content select="[title0]"></ng-content>
     <ng-content class="content" select="[intro]"></ng-content>
@@ -6,12 +6,15 @@
   <ng-content select="[img0]"></ng-content>
 </div>
 
-<div class="part-1">
+<div class="block">
   <div class="text-container">
     <ng-content select="[title1]"></ng-content>
-    <ng-content select="[content1]"></ng-content>
+    <ng-content class="content" select="[content1]"></ng-content>
   </div>
-  <ng-content select="[img1]"></ng-content>
+  <div class="block-img">
+    <ng-content select="[img1]"></ng-content>
+  </div>
+
 </div>
 
 

@@ -1,5 +1,15 @@
-.part-0{
+.block{
   display: flex;
-  align-items: start;
+  align-items: center;
+}
+
+.text-container{
+  width: 60%;
+}
+
+.block-img{
+  display: flex;
+  justify-content: center;
+  width: 40%;
 }
 
