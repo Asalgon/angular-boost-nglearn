@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './forms-test.component.scss'
 })
 export class FormsTestComponent {
+  test: boolean = false;
+
 
 }

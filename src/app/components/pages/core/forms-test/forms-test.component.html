@@ -1,1 +1,26 @@
-<p>forms-test works!</p>
+<div class="home-content">
+  <img class="home-content-image" src="/img/learn.png" alt="learn">
+  <button *ngIf="!test" class="home-content-start" mat-flat-button (click)="test = true">DEMARRER LE TEST</button>
+
+  <mat-card class="question-card" *ngIf="test">
+    <mat-card-header>
+      <mat-card-title>Question n°1</mat-card-title>
+      <mat-card-subtitle>Dans quel cas de figure un formulaire par modèle est-il le plus adapté ?</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="responses">
+      <mat-radio-group class="question-radio" aria-label="Choisissez une réponse">
+        <mat-radio-button value="1">Formulaires dynamiques</mat-radio-button>
+        <mat-radio-button value="2">Validations complexes</mat-radio-button>
+        <mat-radio-button value="3">Utilisation de ngModel</mat-radio-button>
+        <mat-radio-button value="4">Très structuré pour les tests</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button>VALIDER</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+
+

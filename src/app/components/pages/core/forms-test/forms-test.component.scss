@@ -1,0 +1,33 @@
+.home-content{
+  margin-top: 64px;
+}
+
+.home-content-image{
+  position: relative;
+  width: 100%;
+  filter: blur(12px);
+  object-fit: contain;
+}
+
+.home-content-start{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.question-card{
+  max-width: 70%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.responses{
+  margin-top: 16px;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: red;
+}

@@ -57,7 +57,7 @@
             </table>
 
           </div>
-          <img class="overview-img form-example" img1 src="/img/form-ex.png" alt="form-types">
+
 
         </app-learn-section>
       </div>
@@ -69,10 +69,37 @@
     <mat-tab label="Basé du modèle">
       <div class="example-small-box mat-elevation-z4">
         <app-learn-section>
-          <h3 title0>Les formulaires basés sur modèles</h3>
-          <div intro class="overview-content">
+          <h3 title1>Les formulaires basés sur modèles</h3>
+          <h4 subtitle1>1. Définition</h4>
+          <div content1 class="overview-content">
             <p>Un formulaire basé sur modèle (ou Template-driven) est un type de formulaire où la majeure partie de la logique est définie dans le template HTML. Cette approche est intuitive et simple à mettre en oeuvre pour des formulaires de petite à moyenne complexité.</p>
+            <p>Ce type de formulaire est une excellente option pour les applications avec des formulaires simples à moyen et pour les développeurs débutants en Angular. Ils offrent une approche intuitive et moins verbeuse, cependant ils peuvent devenir limités et difficiles à gérer dans le cas de validations dynamiques ou d'intéractions conditionnelles.</p>
+            <p>Dans ce cas, il est recommandé de plutôt utiliser les formulaires réactifs (voir section suivante) qui serait une meilleure solution en raison de leur flexibilité et de leur capacité à gérer des cas d'utilisation avancés.</p>
+          </div>
+          <img class="overview-img form-example" img1 src="/img/form-ex.png" alt="form-types">
 
+          <div content2>
+            <p>Avec les template Angular, vous pouvez construire n'importe quel type de formulaire. Dans cette section nous verrons comment créer ce type de formulaire et les notions associées. </p>
+          </div>
+          <h4 subtitle2>2. Avantages et inconvénients</h4>
+          <div content3>
+            <p>Les avantages des formulaires par modèle sont les suivants :</p>
+            <ol>
+              <li>Simplicité et facilité d'apprentissage</li>
+              <li>Moins de code TypeScript</li>
+              <li>Liaison de données bidirectionnelle</li>
+              <li>Validation intuitive</li>
+              <li>Moins verbeux</li>
+            </ol>
+
+            <p>Maintenant les inconvénients :</p>
+            <ol>
+              <li>Difficultés de gestion pour les formulaires complexes</li>
+              <li>Validation limitées et moins flexible</li>
+              <li>Tests unitaires moins pratiques</li>
+              <li>Performances</li>
+              <li>Moins de contrôle sur l'état</li>
+            </ol>
           </div>
         </app-learn-section>
       </div>
