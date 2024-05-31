@@ -77,28 +77,44 @@
             <p>Dans ce cas, il est recommandé de plutôt utiliser les formulaires réactifs (voir section suivante) qui serait une meilleure solution en raison de leur flexibilité et de leur capacité à gérer des cas d'utilisation avancés.</p>
           </div>
           <img class="overview-img form-example" img1 src="/img/form-ex.png" alt="form-types">
-
-          <div content2>
+          <div subcontent1>
             <p>Avec les template Angular, vous pouvez construire n'importe quel type de formulaire. Dans cette section nous verrons comment créer ce type de formulaire et les notions associées. </p>
           </div>
-          <h4 subtitle2>2. Avantages et inconvénients</h4>
+          <h4 subtitle2>2. Implémentation</h4>
+          <div content2>
+            <pre>{{ tplCodeExample }}</pre>
+
+
+          </div>
+
+          <h4 subtitle3>3. Avantages et inconvénients</h4>
           <div content3>
-            <p>Les avantages des formulaires par modèle sont les suivants :</p>
+            <h4>Les avantages sont :</h4>
             <ol>
               <li>Simplicité et facilité d'apprentissage</li>
+              <p>Idéal pour les débutants en Angular car il repose principalement sur la syntaxe HTML et les directives Angular. La logique du formulaire est écrite directement dans le template, ce qui le rend plus intuitif et facile à comprendre.</p>
               <li>Moins de code TypeScript</li>
+              <p>Nécessite moins de code dasn le composant TypeScript. La plupart de la logique est gérée dans le template. Réduit la complexité du fichier TypeScript du composant rendant plus facile sa maintenance.</p>
               <li>Liaison de données bidirectionnelle</li>
+              <p>Utilise <b>ngModel</b> pour la liaison de données bidirectionnelle, ce qui facilite la synchronisation des valeurs du formulaire avec le modèle de données du composant.</p>
               <li>Validation intuitive</li>
+              <p>Les directives de validation comme <b>required</b>, <b>minlength</b> et <b>maxlenght</b> sont directement utilisées dans le template HTML, rendant les règles de validation plus évidente à la lecture et facile à comprendre.</p>
               <li>Moins verbeux</li>
+              <p>Pour les formulaires simples, ils peuvent être moins verbeux que les formulaires réactifs, car il y a moins de configuration et de code nécessaire.</p>
             </ol>
 
-            <p>Maintenant les inconvénients :</p>
+            <h4>Maintenant les inconvénients :</h4>
             <ol>
               <li>Difficultés de gestion pour les formulaires complexes</li>
+              <p>Pour les formulaires complexes, ou dynamiques, la gestion du template peut devenir difficile et gênante. Moins adapté pour de scénarios où le formulaire doit être manipulé de manière dynamique ou conditionnelle.</p>
               <li>Validation limitées et moins flexible</li>
+              <p>La validation est moins flexible comparée aux formulaires réactifs dû au manque de dynamisme. Il est plus difficle d'implémenter des validations conditionnelles ou personnalisées. Dans les cas de validations complexes, elle requiert souvent d'utiliser des solutions de "bricolage", qui rendent le code moins propre et plus difficile à maintenir.</p>
               <li>Tests unitaires moins pratiques</li>
+              <p>Généralement plus difficile à tester de manière isolée, car la logique est beaucoup liée au template HTML. Il y a également moins de strucutre pour les tests unitaires, ce qui peut compliquer la mise en place de tests complets et efficaces.</p>
               <li>Performances</li>
+              <p>Pour les très grands formulaires, l'utilisation répétée de <b>ngModel</b> et autres directives peut avoir un impact sur les performances en raison de la surcharge de liaison de données bidirectionnelle.</p>
               <li>Moins de contrôle sur l'état</li>
+              <p>Les développeurs ont moins de contrôle programmatique sur l'état du formulaire. La gestion de l'état et des erreurs de validations peut-être moins explicite et moins évident à identifier.</p>
             </ol>
           </div>
         </app-learn-section>
