@@ -16,9 +16,7 @@ import { NotfoundComponent } from './components/pages/core/notfound/notfound.com
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
-
-
-
+import { SharedModule } from './services/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,11 +36,12 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTabsModule,
     MatTableModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    SharedModule
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

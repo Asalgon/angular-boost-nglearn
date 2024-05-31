@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { PrismService } from '../../../../services/prism.service';
 
 const data: any[] = [
   {criteria: 'Création', reactive: 'Composant', template: 'Directive'},
@@ -13,9 +14,14 @@ const data: any[] = [
   templateUrl: './forms-learning.component.html',
   styleUrl: './forms-learning.component.scss'
 })
-export class FormsLearningComponent {
+export class FormsLearningComponent implements OnInit, AfterViewChecked{
+
+
   displayedColumns: string[] = ['criteria', 'reactive', 'template'];
   dataSource = data;
+
+  name: string = 'Angular';
+  highlighted: boolean = false;
 
   tplCodeExample =
   `<div class="container">
@@ -53,5 +59,29 @@ export class FormsLearningComponent {
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-  </div>`
+  </div>`;
+
+  constructor(private readonly prismService: PrismService){}
+
+  ngOnInit(): void {
+    this.tplCodeExample = this.addClassToHtml(this.tplCodeExample, 'line-numbers', 'pre');
+  }
+
+  ngAfterViewChecked(): void {
+    if (!this.highlighted && this.tplCodeExample) {
+      this.prismService.highlightAll();
+      this.highlighted = true;
+    }
+  }
+
+  addClassToHtml(html: string, className: string, tagName: string): string {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const elements = doc.querySelectorAll(tagName);
+    elements.forEach((el) => {
+      el.classList.add(className);
+    });
+    return doc.documentElement.innerHTML;
+  }
+
 }

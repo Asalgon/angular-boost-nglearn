@@ -82,7 +82,7 @@
           </div>
           <h4 subtitle2>2. Implémentation</h4>
           <div content2>
-            <pre>{{ tplCodeExample }}</pre>
+            <div [innerHTML]="tplCodeExample | safeHtml"></div>
 
 
           </div>
