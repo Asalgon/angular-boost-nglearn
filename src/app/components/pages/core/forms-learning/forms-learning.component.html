@@ -82,9 +82,27 @@
           </div>
           <h4 subtitle2>2. Implémentation</h4>
           <div content2>
-            <div [innerHTML]="tplCodeExample | safeHtml"></div>
+            <pre><code [highlight]="tplCodeExample" language="html" linenumbers></code></pre>
+            <h4>Récupérer la valeur du formulaire dans le composant</h4>
+            <p>La directive <b>ngModel</b> sert à lier la valeur des contrôles HTML (input, select, textarea) à des attributs de composant.</p>
+            <p>Pour commencer, il faut créer un <b>input</b> dans le template. Ensuite, appliquer notre <b>ngModel</b> sur cet input, avec comme valeur un attribut présent dans la logique du composant.</p>
+            <pre><code [highlight]="inputExample" language="html" linenumbers></code></pre>
 
+            <h4>Two-way binding</h4>
+            <p>La liaison de données bidirectionnelle (two-way binding) dans Angular permet de synchroniser les données entre le modèle et la vue. Cela signifie que losque la valeur du modèle change, la vue est automatiquement mise à jour et inversement. Lorsque l'utilisateur modifie la valeur dans la vue, le modèle est mis à jour en conséquence.</p>
+            <p>La syntaxe pour utiliser <b>ngModel</b> avec la liaison bidirectionnelle est une combinaison entre () et []. Avec la notation <b>([ngModel])</b>, vous pouvez modifier la donnée dans les deux sens :</p>
+            <ul>
+              <li>Modifier le contenu de l'input met à jour l'attribut ()</li>
+              <li>Modifier l'attribut met à jour la valeur de l'input []</li>
+            </ul>
 
+            <h4>Validation de formulaire</h4>
+            <p>Pour ajouter une validation à un formulaire template-driven, vous pouvez appliquer un attribut de validation html :</p>
+            <pre><code [highlight]="validationExample" language="html" linenumbers></code></pre>
+
+            <h4>Soumission du formulaire</h4>
+            <p>Après la completion, l'utilisateur doit soumettre le formulaire. Pour gérer la soumission, vous devez capter l'event <b>(ngSubmit)</b> émis par le formulaire lorsque le bouton submit du formulaire est cliqué. Si ce n'est pas dans une balise <b>forms</b>, vous pouvez capter l'event <b>(click)</b> sur le bouton de soumission.</p>
+            <pre><code [highlight]="formExample" language="html" linenumbers></code></pre>
           </div>
 
           <h4 subtitle3>3. Avantages et inconvénients</h4>

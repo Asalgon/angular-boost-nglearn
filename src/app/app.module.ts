@@ -16,7 +16,8 @@ import { NotfoundComponent } from './components/pages/core/notfound/notfound.com
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
-import { SharedModule } from './services/shared.module';
+import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,11 +38,21 @@ import { SharedModule } from './services/shared.module';
     MatTableModule,
     MatCardModule,
     MatRadioModule,
-    SharedModule
+    HighlightModule
 
   ],
   providers: [
     provideAnimationsAsync(),
+    provideHighlightOptions({
+      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+      coreLibraryLoader: () => import('highlight.js/lib/core'),
+      languages: {
+        typescript: () => import('highlight.js/lib/languages/typescript'),
+        css: () => import('highlight.js/lib/languages/css'),
+        xml: () => import('highlight.js/lib/languages/xml')
+      },
+      
+    })
   ],
   bootstrap: [AppComponent]
 })
