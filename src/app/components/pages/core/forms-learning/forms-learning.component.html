@@ -145,8 +145,82 @@
     <mat-tab label="Formulaire réactif">
       <div class="example-small-box mat-elevation-z4">
         <app-learn-section>
-          <h3 title>Les formulaires template</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec ullamcorper ante. Donec eget velit non libero sollicitudin dapibus a eu nisi. Phasellus eget turpis viverra, mollis purus eget, placerat metus. Fusce tincidunt arcu in viverra mattis. Proin in malesuada eros, ac condimentum leo. Praesent nibh purus, varius sit amet aliquam in, cursus nec neque. Maecenas mi est, euismod vitae scelerisque vitae, imperdiet sed felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet magna ut nulla congue, vitae dictum dolor dignissim. Mauris et ornare dui, ut sagittis mauris. Phasellus sem leo, maximus at hendrerit a, auctor in turpis. Pellentesque arcu nisl, lacinia id tellus lacinia, imperdiet posuere odio. Nullam vel pulvinar sem. Mauris vitae cursus nisi, lacinia porttitor sapien. Aliquam erat volutpat.</p>
+          <h3 title1>Les formulaires réactifs</h3>
+          <h4 subtitle1>1. Définition</h4>
+          <div content1 class="overview-content">
+            <p>Un formulaire réactif dans Angular est une approche pour gérer les formulaires en utilisant l'API ReactiveFormsModule. Cette méthode fournit un contrôle total sur la validation, la valeur et l'état des champs de formulaire.</p>
+            <p>Les formulaires réactifs dans Angular sont construits à l'aide de l'API ReactiveFormsModule, qui permet de gérer la création et la gestion des formulaires de manière déclarative et réactive. Cela signifie que les formulaires réactifs sont principalement gérés via le code TypeScript, ce qui permet un contrôle programmatique et une validation plus complexe.</p>
+          </div>
+          <img class="overview-img" img1-2 src="/img/reactive.png" alt="form-types">
+          <h4 subtitle2>2. Implémentation</h4>
+          <div content2>
+            <h4>Importation des modules</h4>
+            <p>Pour utiliser les formulaires réactifs, vous devez importer <b>ReactiveFormsModule</b> dans votre module principal (ou tout autre module pertinent).</p>
+            <pre><code [highlight]="reacImport" language="TypeScript" linenumbers></code></pre>
+
+            <h4>Création du formulaire</h4>
+            <p>Dans votre composant, vous allez créer une instance de <b>FormGroup</b> qui va contenir vos contrôles de formulaire (instances de <b>FormControl</b>).</p>
+            <pre><code [highlight]="formCreation" language="TypeScript" linenumbers></code></pre>
+            <p>Dans le template HTML :</p>
+            <pre><code [highlight]="reacCodeExample" language="html" linenumbers></code></pre>
+
+            <h4>Validation de formulaire</h4>
+            <p>Les validations dans les formulaires réactifs d'Angular jouent un rôle crucial pour garantir que les données saisies par l'utilisateur respectent certaines contraintes avant d'être soumises. Angular fournit des validateurs intégrés ainsi que la possibilité de créer des validateurs personnalisés pour répondre à des besoins spécifiques.</p>
+            <p>Quelques example de validateurs intégrés</p>
+            <ul>
+              <li>Validators.required : Vérifie que le champ n'est pas vide.</li>
+              <li>Validators.min(length: number) : Vérifie que la valeur numérique est supérieure ou égale à une valeur minimale.</li>
+              <li>Validators.max(length: number) : Vérifie que la valeur numérique est inférieure ou égale à une valeur maximale.</li>
+              <li>Validators.minLength(length: number) : Vérifie que la longueur de la chaîne est supérieure ou égale à une longueur minimale.</li>
+              <li>Validators.maxLength(length: number) : Vérifie que la longueur de la chaîne est inférieure ou égale à une longueur maximale.</li>
+              <li>Validators.pattern(pattern: string | RegExp) : Vérifie que la valeur respecte un motif spécifique (expression régulière).</li>
+              <li>Validators.email : Vérifie que la valeur est une adresse e-mail valide.</li>
+            </ul>
+
+            <h5>Example d'utilisations</h5>
+            <pre><code [highlight]="reacValidation" language="TypeScript" linenumbers></code></pre>
+
+            <h5>Validateurs personnalisées</h5>
+            <p>En plus des validateurs intégrés, vous pouvez créer des validateurs personnalisés pour des règles de validation spécifiques. Un validateur personnalisé est simplement une fonction qui retourne soit null (si la validation réussit) soit un objet d'erreur (si la validation échoue).</p>
+            <pre><code [highlight]="customValidation" language="TypeScript" linenumbers></code></pre>
+            
+            <h5>Validation asynchrone</h5>
+            <p>Parfois, vous avez besoin de valider les champs de formulaire de manière asynchrone, par exemple en vérifiant si un nom d'utilisateur est déjà pris en interrogeant un serveur. Angular prend en charge les validateurs asynchrones via des Observable ou Promise.</p>
+            <p>Voici comment vous pouvez créer un validateur asynchrone :</p>
+            <pre><code [highlight]="asyncValidation" language="TypeScript" linenumbers></code></pre>
+
+            <h5>Gestion des erreurs de validation</h5>
+            <p>Pour gérer les erreurs de validation, vous pouvez récupérer l'état du contrôle et afficher des messages d'erreur conditionnels dans le template.</p>
+            <pre><code [highlight]="errorValidation" language="html" linenumbers></code></pre>
+
+            <h4>Soumission du formulaire</h4>
+            <p>Dans votre composant TypeScript, créez une méthode pour gérer la soumission du formulaire. Cette méthode vérifiera si le formulaire est valide, puis traitera les données en conséquence (par exemple, en les envoyant à un serveur).</p>
+            <pre><code [highlight]="reacSubmit" language="html" linenumbers></code></pre>
+            <p>La méthode onSubmit est appelée lorsque le formulaire est soumis. Si le formulaire est valide (this.monFormulaire.valid), une requête POST est envoyée à une URL fictive (https://exemple.com/api/endpoint) avec les données du formulaire. Si le formulaire est invalide, tous les champs sont marqués comme touchés pour s'assurer que les messages d'erreur sont affichés.</p>
+
+
+            <h4 subtitle3>3. Avantages et inconvénients</h4>
+            <div content3>
+              <h4>Les avantages sont :</h4>
+              <ol>
+                <li>Contrôle programmatique complet</li>
+                <p>Les formulaires réactifs permettent aux développeurs de gérer les contrôles de formulaire et leurs valeurs directement dans le code TypeScript, offrant ainsi un contrôle total et une grande flexibilité.</p>
+                <li>Validation avancée</li>
+                <p>Les formulaires réactifs supportent facilement des validations synchrones et asynchrones complexes. Vous pouvez appliquer plusieurs validateurs intégrés ou créer des validateurs personnalisés.</p>
+                <li>Observabilité</li>
+                <p>Les formulaires réactifs utilisent des observables, ce qui permet de réagir aux changements de valeurs et d'état des contrôles en temps réel. Cela facilite l'implémentation de fonctionnalités telles que la validation en temps réel et la mise à jour dynamique des champs.</p>
+                <li>Facilité de test</li>
+                <p>Les formulaires réactifs sont plus faciles à tester que les formulaires basés sur des templates car vous pouvez manipuler les contrôles directement dans les tests unitaires sans avoir besoin de rendre les templates HTML.</p>
+                <li>Modularité et réutilisabilité</li>
+                <p>La logique des formulaires peut être facilement modulée et réutilisée. Vous pouvez définir des groupes de formulaires et des contrôles qui peuvent être réutilisés dans différents composants.</p>
+              </ol>
+              <h4>Les inconvénients sont :</h4>
+              <ol>
+                <li></li>
+              </ol>
+            </div>
+            
+          </div>
 
         </app-learn-section>
       </div>

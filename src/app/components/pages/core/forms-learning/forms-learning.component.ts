@@ -14,8 +14,6 @@ const data: any[] = [
   styleUrl: './forms-learning.component.scss'
 })
 export class FormsLearningComponent {
-
-
   displayedColumns: string[] = ['criteria', 'reactive', 'template'];
   dataSource = data;
 
@@ -68,6 +66,136 @@ export class FormsLearningComponent {
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>`;
+
+  reacImport = 
+  `import { ReactiveFormsModule } from '@angular/forms';
+
+  @NgModule({
+    declarations: [
+      // vos composants ici
+    ],
+    imports: [
+      // autres imports
+      ReactiveFormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }`;
+
+  formCreation = 
+  `import { Component } from '@angular/core';
+   import { FormGroup, FormControl, Validators } from '@angular/forms';
+  
+  @Component({
+    selector: 'app-mon-formulaire',
+    templateUrl: './mon-formulaire.component.html',
+    styleUrls: ['./mon-formulaire.component.css']
+  })
+  export class MonFormulaireComponent {
+    monFormulaire: FormGroup;
+  
+    constructor() {
+      this.monFormulaire = new FormGroup({
+        nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        age: new FormControl('', [Validators.required, Validators.min(18)])
+      });
+    }
+  
+    onSubmit() {
+      if (this.monFormulaire.valid) {
+        console.log(this.monFormulaire.value);
+      }
+    }
+  }`;
+
+  reacCodeExample =
+  `
+  <form [formGroup]="monFormulaire" (ngSubmit)="onSubmit()">
+    <label for="nom">Nom:</label>
+    <input id="nom" formControlName="nom">
+    <div *ngIf="monFormulaire.get('nom').invalid && monFormulaire.get('nom').touched">
+      <small *ngIf="monFormulaire.get('nom').errors.required">Le nom est requis.</small>
+      <small *ngIf="monFormulaire.get('nom').errors.minlength">Le nom doit avoir au moins 3 caractères.</small>
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email">
+    <div *ngIf="monFormulaire.get('email').invalid && monFormulaire.get('email').touched">
+      <small *ngIf="monFormulaire.get('email').errors.required">L'email est requis.</small>
+      <small *ngIf="monFormulaire.get('email').errors.email">Email invalide.</small>
+    </div>
+
+    <label for="age">Age:</label>
+    <input id="age" formControlName="age">
+    <div *ngIf="monFormulaire.get('age').invalid && monFormulaire.get('age').touched">
+      <small *ngIf="monFormulaire.get('age').errors.required">L'âge est requis.</small>
+      <small *ngIf="monFormulaire.get('age').errors.min">L'âge doit être au moins de 18 ans.</small>
+    </div>
+
+    <button type="submit" [disabled]="monFormulaire.invalid">Soumettre</button>
+  </form>
+  `;
+
+  reacValidation =
+  `
+  {
+    nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    age: new FormControl('', [Validators.required, Validators.min(18)])
+  }
+  `;
+
+  customValidation =
+  `
+  import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+
+  export function forbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const forbidden = forbiddenName.test(control.value);
+    return forbidden ? { forbiddenName: { value: control.value } } : null;
+    };
+  }
+  `;
+
+  asyncValidation =
+  `
+  import { AbstractControl, ValidationErrors } from '@angular/forms';
+  import { Observable, of } from 'rxjs';
+  import { delay, map } from 'rxjs/operators';
+
+  export function asyncUsernameValidator(control: AbstractControl): Observable<ValidationErrors | null> {
+    const forbiddenUsernames = ['admin', 'user'];
+    return of(control.value).pipe(
+      delay(1000), // Simule un appel HTTP
+      map(value => (forbiddenUsernames.includes(value) ? { forbiddenName: { value } } : null))
+    );
+  }
+  `;
+
+  errorValidation =
+  `
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email">
+  <div *ngIf="monFormulaire.get('email').invalid && monFormulaire.get('email').touched">
+    <small *ngIf="monFormulaire.get('email').errors.required">L'email est requis.</small>
+    <small *ngIf="monFormulaire.get('email').errors.email">Email invalide.</small>
+  </div>
+  `;
+
+  reacSubmit =
+  `
+  <form [formGroup]="monFormulaire" (ngSubmit)="onSubmit()">
+    <button type="submit" [disabled]="monFormulaire.invalid">Soumettre</button>
+  </form>
+
+  onSubmit() {
+  if (this.monFormulaire.valid) {
+    console.log(this.monFormulaire.value);
+  }
+  }
+  `;
 
   constructor(){}
 
