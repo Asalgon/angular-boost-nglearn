@@ -17,6 +17,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
+import {ReactiveFormsModule} from '@angular/forms';
+import { FormQuestionsComponent } from './components/pages/core/forms-test/form-questions/form-questions.component';
+import { QuestionRadioComponent } from './components/pages/core/forms-test/question-radio/question-radio.component'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
     FormsLearningComponent,
     FormsTestComponent,
     LearnSectionComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    FormQuestionsComponent,
+    QuestionRadioComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
     MatTableModule,
     MatCardModule,
     MatRadioModule,
-    HighlightModule
+    HighlightModule,
+    ReactiveFormsModule
 
   ],
   providers: [
