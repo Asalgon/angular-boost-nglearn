@@ -1,12 +1,39 @@
 <div class="home-content">
   <img class="home-content-image" src="/img/learn.png" alt="learn">
-  <button *ngIf="!test" class="home-content-start" mat-flat-button (click)="test = true">DEMARRER LE TEST</button>
+  <button *ngIf="!test" class="home-content-start" mat-flat-button (click)="beginTest()">DEMARRER LE TEST</button>
 
-  <form [formGroup]="dynamicFormGroup" *ngIf="test">
-    <div *ngFor="let field of fields">
-      <app-form-questions [field]="field"></app-form-questions>
-    </div>
-  </form>
+
+  <div class="timer" *ngIf="test">
+    <p>Temps restant:</p>
+    <p>{{ '2024-06-19T10:30:00.0z' | duration:'2024-06-19T10:00:00.0z':'mm:s' | async }}</p>
+  </div>
+  <div class="test-container" *ngIf="test">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-card class="example-card" appearance="outlined">
+
+        <mat-card-content>
+
+          <div class="question-container" *ngFor="let q of questions; let index = index">
+            <app-question
+              [cName]="q.value"
+              [qNumber]="index"
+              [label]="q.label"
+              [options]="q.options"
+              [type]="q.type"></app-question>
+          </div>
+
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-button type="submit" [disabled]="!form.valid">VALIDER</button>
+        </mat-card-actions>
+
+      </mat-card>
+    </form>
+
+  </div>
+
 </div>
 
 

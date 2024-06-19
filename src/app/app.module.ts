@@ -18,9 +18,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
 import {ReactiveFormsModule} from '@angular/forms';
-import { FormQuestionsComponent } from './components/pages/core/forms-test/form-questions/form-questions.component';
-import { QuestionRadioComponent } from './components/pages/core/forms-test/question-radio/question-radio.component'; 
-
+import { QuestionComponent } from './components/pages/core/forms-test/question/question.component';
+import { DurationPipe } from './duration.pipe';
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +30,8 @@ import { QuestionRadioComponent } from './components/pages/core/forms-test/quest
     FormsTestComponent,
     LearnSectionComponent,
     NotfoundComponent,
-    FormQuestionsComponent,
-    QuestionRadioComponent
+    QuestionComponent,
+    DurationPipe,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +43,7 @@ import { QuestionRadioComponent } from './components/pages/core/forms-test/quest
     MatTableModule,
     MatCardModule,
     MatRadioModule,
+    MatDividerModule,
     HighlightModule,
     ReactiveFormsModule
 
@@ -57,7 +58,7 @@ import { QuestionRadioComponent } from './components/pages/core/forms-test/quest
         css: () => import('highlight.js/lib/languages/css'),
         xml: () => import('highlight.js/lib/languages/xml')
       },
-      
+
     })
   ],
   bootstrap: [AppComponent]
