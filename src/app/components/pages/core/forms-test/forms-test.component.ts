@@ -1,73 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { timer } from 'rxjs';
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { FormService } from '../../../../services/form.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-forms-test',
   templateUrl: './forms-test.component.html',
-  styleUrl: './forms-test.component.scss'
+  styleUrl: './forms-test.component.scss',
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            animate('1s ease-out',
+                    style({ opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave',
+          [
+            style({ opacity: 1 }),
+            animate('1s ease-in',
+                    style({ opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class FormsTestComponent {
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private formService: FormService){}
 
   test: boolean = false;
   form!: FormGroup;
-
-  questions: any = [
-    {
-      value: 'q1',
-      label: 'Dans quel cas de figure un formulaire par modèle est-il le plus adapté ?',
-      type: 'radio',
-      options:['Formulaires dynamiques', 'Validations complexes', 'Utilisation de ngModel', 'Très structuré pour les tests'],
-      response: 3,
-      rules: {
-        required: true
-      }
-    },
-    {
-      value: 'q2',
-      label: 'Quelle est la principale différence entre les formulaires template-driven et réactifs ?',
-      type: 'radio',
-      options:[
-        'Les formulaires réactifs sont plus difficiles à tester',
-        'Les formulaires réactifs permettent un meilleur contrôle',
-        "Les formulaires template-driven n'utilisent pas de directives",
-        'Les formulaires réactifs ne nécessitent pas de module supplémentaire'
-      ],
-      response: 2,
-      rules: {
-        required: true
-      }
-    },
-    {
-      value: 'q3',
-      label: 'Quel module devez-vous importer pour utiliser les formulaires template-driven ?',
-      type: 'radio',
-      options:[
-        'ReactiveFormsModule',
-        'FormBuilderModule',
-        'TemplateFormsModule',
-        'FormsModule',
-      ],
-      response: 4,
-      rules: {
-        required: true
-      }
-    },
-  ]
+  questions: any = []
 
 
   ngOnInit(): void {
-    this.buildForm();
+    this.questions = this.formService.getFormData();
+    this.form = this.buildForm(this.questions);
+
+
+    this.form.valueChanges.subscribe(v => console.log(v))
   };
 
-  buildForm(): void{
-    this.form = this.formBuilder.group({
-      q1: ['', [Validators.required]],
-      q2: ['', [Validators.required]],
-      q3: ['', [Validators.required]]
-    })
-    //this.form.valueChanges.subscribe(v => console.log(v))
+  buildForm(data: any): FormGroup {
+    let formGroup: any = {};
+    data.forEach((control: any) => {
+
+        formGroup[control.value] = new FormControl('', Validators.required);
+
+
+    });
+    return new FormGroup(formGroup)
   };
 
   beginTest(){

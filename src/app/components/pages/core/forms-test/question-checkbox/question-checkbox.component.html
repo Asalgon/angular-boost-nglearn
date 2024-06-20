@@ -1,0 +1,10 @@
+<ng-container>
+  <form [formGroup]="form">
+    <h3>Question n°{{ qNumber + 1 }}</h3>
+    <h4>{{ label }}</h4>
+    <div class="question-checkbox">
+      <mat-checkbox [formControlName]="cName" *ngFor="let option of options; let i = index">{{i+1}}. {{ option }}</mat-checkbox>
+    </div>
+
+  </form>
+</ng-container>

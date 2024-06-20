@@ -1,12 +1,12 @@
-import { Component, Input, OnInit, input } from '@angular/core';
-import { FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrl: './question.component.scss'
+  selector: 'app-question-checkbox',
+  templateUrl: './question-checkbox.component.html',
+  styleUrl: './question-checkbox.component.scss'
 })
-export class QuestionComponent implements OnInit{
+export class QuestionCheckboxComponent {
 
   @Input() qNumber: number = 0;
   @Input() label: string = '';
@@ -21,4 +21,5 @@ export class QuestionComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.rootFormGroup.control;
   }
+
 }

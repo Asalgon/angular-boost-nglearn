@@ -1,6 +1,4 @@
-<ng-container *ngIf="type === 'radio'; then qRadio else qBox"></ng-container>
-
-<ng-template #qRadio >
+<ng-container>
   <form [formGroup]="form">
     <h3>Question n°{{ qNumber + 1 }}</h3>
     <h4>{{ label }}</h4>
@@ -8,6 +6,4 @@
       <mat-radio-button *ngFor="let o of options; let i = index" [value]="i+1">{{i+1}}. {{ o }}</mat-radio-button>
     </mat-radio-group>
   </form>
-</ng-template>
-
-<ng-template #qBox></ng-template>
+</ng-container>

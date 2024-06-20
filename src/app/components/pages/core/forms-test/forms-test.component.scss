@@ -1,12 +1,16 @@
 .home-content{
-  margin-top: 64px;
+  //background-color: #FFD9AD;
+  background: linear-gradient(217deg, rgba(0,120,214,.8) , rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(255,217,173,.8) , rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(226,50,55,.8), rgba(0,0,255,0) 70.71%);
 }
 
 .home-content-image{
   position: relative;
   width: 100%;
+  height: 100%;
   filter: blur(12px);
-  object-fit: contain;
+  padding-top: 60px;
 }
 
 .home-content-start{
@@ -19,7 +23,7 @@
   position: fixed;
   top: 84px;
   left: 24px;
-  width: 5%;
+  width: 7%;
   background-color: white;
   border-radius: 12px;
   border-style: solid;
@@ -29,10 +33,6 @@
  }
 
 .test-container {
-  position: absolute;
-  top: 84px;
-  left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
@@ -41,4 +41,10 @@
 
 .question-container{
   margin-bottom: 56px;
+  padding-left: 24px;
+}
+
+.test-form{
+  padding-top: 84px;
+  padding-bottom: 20px;
 }

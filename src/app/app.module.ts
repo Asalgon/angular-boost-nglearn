@@ -17,10 +17,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
-import {ReactiveFormsModule} from '@angular/forms';
-import { QuestionComponent } from './components/pages/core/forms-test/question/question.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { QuestionRadioComponent } from './components/pages/core/forms-test/question-radio/question-radio.component';
 import { DurationPipe } from './duration.pipe';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
+import { QuestionCheckboxComponent } from './components/pages/core/forms-test/question-checkbox/question-checkbox.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +32,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsTestComponent,
     LearnSectionComponent,
     NotfoundComponent,
-    QuestionComponent,
+    QuestionRadioComponent,
     DurationPipe,
+    QuestionCheckboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatRadioModule,
     MatDividerModule,
     HighlightModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCheckboxModule
 
   ],
   providers: [
