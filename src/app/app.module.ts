@@ -23,6 +23,12 @@ import { DurationPipe } from './duration.pipe';
 import { MatDividerModule } from '@angular/material/divider';
 import { QuestionCheckboxComponent } from './components/pages/core/forms-test/question-checkbox/question-checkbox.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { QuestionInputComponent } from './components/pages/core/forms-test/question-input/question-input.component';
+import { QuestionSelectComponent } from './components/pages/core/forms-test/question-select/question-select.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +41,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     QuestionRadioComponent,
     DurationPipe,
     QuestionCheckboxComponent,
+    QuestionInputComponent,
+    QuestionSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDividerModule,
     HighlightModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule
 
   ],
   providers: [

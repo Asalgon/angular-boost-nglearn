@@ -5,7 +5,7 @@
   <div class="test-container" *ngIf="test">
     <div class="timer" @inOutAnimation>
       <p>Temps restant:</p>
-      <p>{{ '2024-06-19T10:30:00.0z' | duration:'2024-06-19T10:00:00.0z':'mm:s' | async }}</p>
+      <p>{{ '2024-06-19T10:15:00.0z' | duration:'2024-06-19T10:00:00.0z':'mm:s' | async }}</p>
     </div>
 
     <form class="test-form" [formGroup]="form" (ngSubmit)="onSubmit()" @inOutAnimation>
@@ -35,6 +35,26 @@
                 >
                 </app-question-checkbox>
               }
+              @case ('input'){
+                <app-question-input
+                  [cName]="q.value"
+                  [qNumber]="index"
+                  [label]="q.label"
+                  [options]="q.options"
+                  [type]="q.type"
+                >
+                </app-question-input>
+              }
+              @case ('select'){
+                <app-question-select
+                  [cName]="q.value"
+                  [qNumber]="index"
+                  [label]="q.label"
+                  [options]="q.options"
+                  [type]="q.type"
+                >
+                </app-question-select>
+              }
             }
 
           </div>
@@ -50,6 +70,3 @@
 
   </div>
 </div>
-
-
-

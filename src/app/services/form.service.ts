@@ -64,6 +64,25 @@ export class FormService {
         ],
         response: [1, 2, 3, 4],
       },
+      {
+        value: 'q6',
+        label: 'Quels service Angular est souvent utilisé pour créer et gérer des formulaires réactifs ?',
+        type: 'input',
+        options:[''],
+        response: 'FormBuilder' || 'formBuilder' || 'formbuilder' || 'Formbuilder',
+      },
+      {
+        value: 'q7',
+        label: "Quelle propriété d'un contrôle de formulaire indique s'il a été modifié par l'utilisateur ?",
+        type: 'select',
+        options:[
+          'pristine',
+          'touched',
+          'dirty',
+          'valid'
+        ],
+        response: 3,
+      },
     ]
   }
 
