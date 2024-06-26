@@ -27,6 +27,7 @@ import { QuestionInputComponent } from './components/pages/core/forms-test/quest
 import { QuestionSelectComponent } from './components/pages/core/forms-test/question-select/question-select.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { TestResultsComponent } from './components/pages/core/forms-test/test-results/test-results.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import {MatSelectModule} from '@angular/material/select';
     QuestionCheckboxComponent,
     QuestionInputComponent,
     QuestionSelectComponent,
+    TestResultsComponent,
   ],
   imports: [
     BrowserModule,
