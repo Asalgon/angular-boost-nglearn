@@ -1,0 +1,12 @@
+<ng-container>
+  <form [formGroup]="form">
+    <h3>Question n°{{ qNumber + 1 }}</h3>
+    <h4>{{ label }}</h4>
+    <mat-form-field>
+      <mat-label>Réponses</mat-label>
+      <mat-select [formControlName]="cName">
+        <mat-option *ngFor="let o of options; let i = index" [value]="i+1">{{i+1}}. {{ o }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</ng-container>

@@ -1,0 +1,22 @@
+.results-container{
+  background: linear-gradient(217deg, rgba(226,50,55,.8)  , rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(255,217,173,.8) , rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,120,214,.8) , rgba(0,0,255,0) 70.71%);
+  height: 100%;
+  position: relative;
+}
+
+.test-button{
+  width: 175px;
+  margin-top: 24px;
+}
+
+.results-card{
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  min-width: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

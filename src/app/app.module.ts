@@ -16,7 +16,18 @@ import { NotfoundComponent } from './components/pages/core/notfound/notfound.com
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { HighlightModule, provideHighlightOptions } from 'ngx-highlightjs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { QuestionRadioComponent } from './components/pages/core/forms-test/question-radio/question-radio.component';
+import { DurationPipe } from './duration.pipe';
+import { MatDividerModule } from '@angular/material/divider';
+import { QuestionCheckboxComponent } from './components/pages/core/forms-test/question-checkbox/question-checkbox.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { QuestionInputComponent } from './components/pages/core/forms-test/question-input/question-input.component';
+import { QuestionSelectComponent } from './components/pages/core/forms-test/question-select/question-select.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { TestResultsComponent } from './components/pages/core/forms-test/test-results/test-results.component';
 
 
 @NgModule({
@@ -27,7 +38,13 @@ import { MatRadioModule } from '@angular/material/radio';
     FormsLearningComponent,
     FormsTestComponent,
     LearnSectionComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    QuestionRadioComponent,
+    DurationPipe,
+    QuestionCheckboxComponent,
+    QuestionInputComponent,
+    QuestionSelectComponent,
+    TestResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,11 +55,27 @@ import { MatRadioModule } from '@angular/material/radio';
     MatTabsModule,
     MatTableModule,
     MatCardModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule,
+    HighlightModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHighlightOptions({
+      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+      coreLibraryLoader: () => import('highlight.js/lib/core'),
+      languages: {
+        typescript: () => import('highlight.js/lib/languages/typescript'),
+        css: () => import('highlight.js/lib/languages/css'),
+        xml: () => import('highlight.js/lib/languages/xml')
+      },
+
+    })
   ],
   bootstrap: [AppComponent]
 })

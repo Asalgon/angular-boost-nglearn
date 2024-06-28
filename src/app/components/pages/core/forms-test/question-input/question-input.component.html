@@ -1,0 +1,9 @@
+<ng-container>
+  <form [formGroup]="form">
+    <h3>Question n°{{ qNumber + 1 }}</h3>
+    <h4>{{ label }}</h4>
+    <mat-form-field class="example-full-width">
+      <input [formControlName]="cName" matInput placeholder="...">
+    </mat-form-field>
+  </form>
+</ng-container>
