@@ -7,7 +7,7 @@ export class FormService {
   constructor() { }
 
   private isTesting: boolean = false;
-  protected done: boolean = false;
+  done: boolean = false;
 
   protected data = [
     {
@@ -70,7 +70,7 @@ export class FormService {
       label: 'Quels service Angular est souvent utilisé pour créer et gérer des formulaires réactifs ?',
       type: 'input',
       options:[''],
-      response: 'FormBuilder' || 'formBuilder' || 'formbuilder' || 'Formbuilder',
+      response: 'formbuilder',
     },
     {
       value: 'q7',

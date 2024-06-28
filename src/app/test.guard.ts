@@ -6,13 +6,10 @@ export const testGuard: CanActivateFn = (route, state) => {
   const form = inject(FormService);
   const router = inject(Router);
 
-  /*if(form.isDone()) {
-      router.navigateByUrl('/results')
-      return true
+  if(form.isDone()) {
+    return true;
   } else {
-    router.navigateByUrl('/test')
-    return false
-  }*/
- return true
-
-};
+    router.navigate(['/test']);
+    return false;
+  }
+}

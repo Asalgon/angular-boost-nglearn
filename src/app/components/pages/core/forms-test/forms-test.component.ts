@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { FormService } from '../../../../services/form.service';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-forms-test',
@@ -33,7 +33,12 @@ import { Router } from '@angular/router';
   ]
 })
 export class FormsTestComponent {
-  constructor(private formBuilder: FormBuilder, private formService: FormService, private router: Router){}
+  constructor(
+    private formBuilder: FormBuilder,
+    private formService: FormService,
+    private router: Router,
+    private route: ActivatedRoute
+  ){}
 
   test: boolean = false;
   form!: FormGroup;
@@ -72,10 +77,10 @@ export class FormsTestComponent {
   }
 
   onSubmit(): void{
-    let correctAnswers: any[] = []
+    let correctAnswers: any[] = [];
+    let answers: any[] = [];
 
-    //get form answers
-    let answers: any[] = []
+    //
     Object.keys(this.form.controls).forEach((control) => {
       answers.push(this.form.controls[control].value)
     });
@@ -83,16 +88,31 @@ export class FormsTestComponent {
     //check with correct responses
     const correction: any[] = this.formService.getAllResponses();
     for(let index = 0; index < correction.length; index++){
-      if(answers[index] === correction[index]){
+      if(JSON.stringify(answers[index]).toLowerCase() === JSON.stringify(correction[index]).toLowerCase()){
         this.score+=1;
         correctAnswers.push(index+1);
       }
     }
+    if(this.score > 0){
+      console.log('Correct responses: ' + correctAnswers);
+    }
     console.log('You have: ' + this.score + '/' + correction.length);
-    console.log('Correct responses: ' + correctAnswers)
-    this.test = false;
-
+    //this.test = false;
     this.formService.finishTest();
+
+    try {
+      this.router.navigate(['/results',
+        {
+          score: this.score,
+          correctAnswers: correctAnswers,
+          questionsNumber: correction.length
+        }
+      ])
+    } catch (error) {
+      console.log(error)
+    }
+
+
 
   }
 }
