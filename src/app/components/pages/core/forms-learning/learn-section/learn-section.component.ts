@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './learn-section.component.scss'
 })
 export class LearnSectionComponent {
-
+  constructor(){}
+  @Input() likeable!: boolean;
 }

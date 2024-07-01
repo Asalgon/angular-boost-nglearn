@@ -14,3 +14,16 @@
   width: 40%;
 }
 
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  min-width: 120px;
+}
+
+.mat-mdc-fab {
+  color: red;
+  background-color: rgb(255, 228, 228);
+}
+

@@ -4,7 +4,7 @@
   <mat-tab-group dynamicHeight mat-stretch-tabs="true" mat-align-tabs="middle" color="warn">
     <mat-tab label="Vue d'ensemble">
       <div class="example-small-box mat-elevation-z4">
-        <app-learn-section>
+        <app-learn-section [likeable]="false">
           <h3 title0>Pour commencer</h3>
           <div intro class="overview-content">
             <p>Les formulaires Angular sont une partie essentielle du développement d'applications web avec le framework Angular. Ils permettent de récupérer et de valider les données entrées par l'utilisateur par plusieurs méthodes, de manière efficace et structurée.</p>
@@ -57,8 +57,6 @@
             </table>
 
           </div>
-
-
         </app-learn-section>
       </div>
     </mat-tab>
@@ -68,7 +66,7 @@
 
     <mat-tab label="Basé du modèle">
       <div class="example-small-box mat-elevation-z4">
-        <app-learn-section>
+        <app-learn-section [likeable]="true">
           <h3 title1>Les formulaires basés sur modèles</h3>
           <h4 subtitle1>1. Définition</h4>
           <div content1 class="overview-content">
@@ -144,7 +142,7 @@
 
     <mat-tab label="Formulaire réactif">
       <div class="example-small-box mat-elevation-z4">
-        <app-learn-section>
+        <app-learn-section [likeable]="true">
           <h3 title1>Les formulaires réactifs</h3>
           <h4 subtitle1>1. Définition</h4>
           <div content1 class="overview-content">
@@ -183,7 +181,7 @@
             <h5>Validateurs personnalisées</h5>
             <p>En plus des validateurs intégrés, vous pouvez créer des validateurs personnalisés pour des règles de validation spécifiques. Un validateur personnalisé est simplement une fonction qui retourne soit null (si la validation réussit) soit un objet d'erreur (si la validation échoue).</p>
             <pre><code [highlight]="customValidation" language="TypeScript" linenumbers></code></pre>
-            
+
             <h5>Validation asynchrone</h5>
             <p>Parfois, vous avez besoin de valider les champs de formulaire de manière asynchrone, par exemple en vérifiant si un nom d'utilisateur est déjà pris en interrogeant un serveur. Angular prend en charge les validateurs asynchrones via des Observable ou Promise.</p>
             <p>Voici comment vous pouvez créer un validateur asynchrone :</p>
@@ -228,7 +226,7 @@
                 <p>Bien que les formulaires réactifs offrent un contrôle complet sur l'état du formulaire, cela peut également signifier que les développeurs doivent gérer explicitement des aspects tels que l'état de validité, la saleté et la touche, ce qui peut augmenter la complexité du code.</p>
               </ol>
             </div>
-            
+
           </div>
 
         </app-learn-section>

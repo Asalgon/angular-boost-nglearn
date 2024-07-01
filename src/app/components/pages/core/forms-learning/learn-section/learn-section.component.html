@@ -4,9 +4,7 @@
     <ng-content class="content" select="[intro]"></ng-content>
   </div>
   <ng-content select="[img0]"></ng-content>
-</div>
 
-<div class="block">
   <div class="text-container">
     <ng-content select="[title1]"></ng-content>
     <ng-content select="[subtitle1]"></ng-content>
@@ -28,7 +26,14 @@
     <ng-content select="[content3]"></ng-content>
   </div>
 
+  <div *ngIf="likeable" class="example-button-container">
+    <button mat-fab extended>
+      <mat-icon>favorite</mat-icon>
+      Avez-vous aimé cette section ?
+    </button>
+  </div>
 </div>
+
 
 
 
